@@ -3,7 +3,6 @@ import Image from 'next/image'
 export default function Cart() {
     return (
         <div>
-
             <div className="p-2 lg:w-[40%] md:w-1/2 w-full">
                 <div>
                     hello
