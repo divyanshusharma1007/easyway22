@@ -8,7 +8,7 @@ export default function Slider() {
   console.log(Carousel)
   return (
     <div className=''>
-      <Carousel infiniteLoop={true} autoPlay={true} stopOnHover={true} autoFocus={true}  showArrows={true} showStatus={false}  showThumbs={false} showIndicators={true}  className='bg-rose-100 rounded-3xl'>
+      <Carousel infiniteLoop={true} autoPlay={true} stopOnHover={true} autoFocus={true}  showArrows={true} showStatus={false}  showThumbs={false} showIndicators={true}  className='md:bg-rose-500 rounded-3xl md:py-3' >
         <div className='my-5 '>
           <Image src={img} alt="image1" />
           <h1 className=' text-4xl font-extrabold relative top-[-50px] text-white text-right mx-10 2xl:mr-90 left-6 sm:mr-16 md:mr-32 lg:mr-64 xl:mr-96 2xl:mr-[37rem]'>50%off </h1>

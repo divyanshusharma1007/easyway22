@@ -3,7 +3,7 @@ import Image from 'next/image'
 export default function login() {
     return (
         <div className='bg-gray-200 py-10 relative '>
-            <section className="h-full gradient-form md:h-auto ">
+            <section className="h-full  md:h-auto ">
                 <div className="container py-12 px-6 ">
                     <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
                         <div className="xl:w-10/12">

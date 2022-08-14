@@ -5,6 +5,7 @@ import Slider from '../components/home/Slider'
 import TopBar from '../components/home/TopBar'
 import SpecialProducts from '../components/home/SpecialProducts'
 import HomeFooter from '../components/home/HomeFooter'
+import Offer from '../components/home/Offer'
 export default function Home() {
   return (
     <div>
@@ -14,14 +15,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main >
-        <TopBar />
+        {/* <TopBar /> */}
         <hr className='my-2' />
         <Slider />
         <hr className='my-2' />
-        <SpecialProducts/>
+        <SpecialProducts />
         <hr className='my-2' />
-        <Features />
-<HomeFooter/>
+        {/* <Features /> */}
+        <Offer/>
+        <HomeFooter />
       </main>
     </div>
   )
