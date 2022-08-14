@@ -7,13 +7,14 @@ export default function Offer() {
         >
             <h1 className="text-center text-3xl font-mono font-bold pt-5">Offers</h1>
             <div className='grid grid-flow-row grid-cols-1 sm:grid-cols-2 xl:grid-cols-3'>
-                <div className='w-full px-3 py-3'>
-                    <Image src={require('../../public/Images/slide1.jpg')} height={300} />
+                <div className='w-full px-2 py-3'>
+                    <Image src={require('../../public/Images/slide1.jpg')} height={290} />
                 </div>
-                <div className='w-full px-3 py-2'>
-                    <Image src={require('../../public/Images/slide1.jpg')} height={300} />
-                </div> <div className='w-full px-3 py-2'>
-                    <Image src={require('../../public/Images/slide1.jpg')} height={300} />
+                <div className='w-full px-2 py-2'>
+                    <Image src={require('../../public/Images/slide1.jpg')} height={290} />
+                </div>
+                <div className='w-full px-2 py-2'>
+                    <Image src={require('../../public/Images/slide1.jpg')} height={290} />
                 </div>
             </div>
         </div>

@@ -3,7 +3,7 @@ import Image from 'next/image'
 import basket from '../../public/Images/vehicle.png'
 export default function TopBar() {
     return (
-        <div className=" hidden  bg-green-50 items-center sm:justify-around border rounded-br-[49%] sm:rounded-br-full  ">
+        <div className=" hidden md:flex bg-green-200 items-center sm:justify-around border rounded-br-[49%] sm:rounded-br-full  ">
             {/* make it flex */}
             <div className=" px-5 sm:px-10 w-2/4 ">
                 <h2 className=' text-3xl sm:text-3xl font-bold mb-5'>Easy Way</h2>
