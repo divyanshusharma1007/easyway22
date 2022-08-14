@@ -1,0 +1,11 @@
+.sliderTrack{
+   animation: slide 10s infinite;
+}
+@keyframes slide {
+    0%{
+        transform: translateX(0px);
+    }
+    100%{
+        transform: translate(calc(-20rem*4));
+    }
+}
