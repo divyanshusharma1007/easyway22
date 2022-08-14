@@ -2,6 +2,8 @@ import React from 'react'
 
 export default function about() {
   return (
-    <div>about form </div>
+    <div>
+      Details Not Avilabe Now given after some time 
+    </div>
   )
 }

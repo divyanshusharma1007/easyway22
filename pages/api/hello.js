@@ -1,8 +1,12 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import connectToMongo from "../../database/connections"
-const mongoose=require('mongoose')
-const handler = (req, res) => {
-  res.status(200).json({ name: 'John Doe' })
+import models from '../../database/models'
+const mongoose = require('mongoose')
+const handler = async (req, res) => {
+  console.log("Running")
+  const { User } = models();
+
+  res.status(200).json({ name: 'John Doe', data: await User.find() })
 }
 
 export default connectToMongo(handler)
