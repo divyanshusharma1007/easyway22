@@ -15,13 +15,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main >
-        {/* <TopBar /> */}
+        <TopBar />
         <hr className='my-2' />
         <Slider />
         <hr className='my-2' />
         <SpecialProducts />
         <hr className='my-2' />
-        {/* <Features /> */}
+        <Features />
         <Offer/>
         <HomeFooter />
       </main>
