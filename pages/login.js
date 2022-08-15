@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import loginadmin from '../actions/admin/login'
 import { useRouter } from 'next/router'
-export default function login() {
+export default function Login() {
     const router = useRouter()
     const loginadmin = async () => {
         const username = prompt("Enter admin user name")

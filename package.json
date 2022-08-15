@@ -16,6 +16,7 @@
     "axios": "^0.27.2",
     "bcryptjs": "^2.4.3",
     "framer-motion": "^7.1.0",
+    "fs": "^0.0.1-security",
     "hero-slider": "^2.0.3",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.5.2",
