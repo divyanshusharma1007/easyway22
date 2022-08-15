@@ -1,12 +1,19 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import loginadmin from '../actions/admin/login'
+import { useRouter } from 'next/router'
 export default function login() {
-    const loginAdmin = () => {
+    const router=useRouter()
+    const login = async () => {
         const username = prompt("Enter admin user name")
         const password = prompt("Enter admin password")
-        const alert=confirm("Are you sure want to loged as admin .")
-        
-        console.log(username,password,alert);
+        const alt = confirm("Are you sure want to loged as admin .")
+        console.log(username, password, alt);
+        if (alt) {
+            const data = await loginadmin({ username: username, password: password })
+            localStorage.setItem("auth", JSON.stringify(data));
+router.push('/admin')
+        }
     }
     return (
         <section className='flex justify-center bg-gray-300'>
@@ -69,7 +76,7 @@ export default function login() {
                                         className="lg:w-6/12 flex items-center lg:rounded-r-lg rounded-b-lg lg:rounded-bl-none bg-gradient-to-r from-indigo-500  to-fuchsia-600"
                                     >
                                         <div className="text-white px-4 py-6 md:p-12 md:mx-6">
-                                            <h4 className="text-xl font-semibold mb-6">We are not a company, We are <span onClick={loginAdmin}> family </span></h4>
+                                            <h4 className="text-xl font-semibold mb-6">We are not a company, We are <span onClick={login}> family </span></h4>
                                             <p className="text-sm">
                                                 we have decided to proivde the servies to you in as easy and good products .we provide the fastest delivery of the grocessary ,vegitables and fruits at your door step.
                                             </p>

@@ -13,6 +13,7 @@
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "animate.css": "^4.1.1",
+    "axios": "^0.27.2",
     "bcryptjs": "^2.4.3",
     "framer-motion": "^7.1.0",
     "hero-slider": "^2.0.3",
