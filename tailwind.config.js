@@ -7,7 +7,7 @@ module.exports = {
     extend: {
       keyframes:{
       },
-      animation:{}
+      animation:{},
     },
   },
   plugins: [],
