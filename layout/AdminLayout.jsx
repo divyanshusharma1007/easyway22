@@ -6,10 +6,11 @@ import SideBar from "../admin/Layout/SideBar"
 
 export default function MainLayout({ children }) {
     return (
-        <div >
-            <Header/>
-            {/* <SideBar/> */}
-            <main>{children}</main>
-        </div>
+        <>
+            <Header />
+            <SideBar />
+           
+                <main>{children}</main>
+        </>
     )
 }
