@@ -14,6 +14,5 @@ export default async (data) => {
         alert("some error occured")
     });
     console.log(res, "response from backend")
-    alert("login successfull");
     return res;
 }

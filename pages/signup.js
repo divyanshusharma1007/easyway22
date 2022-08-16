@@ -25,7 +25,7 @@ export default function Signupuser() {
   const signUpUser = async (e) => {
     const data = await signup(formData);
     console.log("sign up exchanged");
-    // Cookies.set("auth", JSON.stringify(data));
+    Cookies.set("auth", JSON.stringify(data));
     alert('loging successfull')
     console.log(Cookies.get('auth'))
     console.log(typeof (Cookies.get('auth')), 'type of cookie')
