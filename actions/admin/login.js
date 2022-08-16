@@ -3,7 +3,7 @@ export default async (data) => {
     console.log(data)
     const options = {
         method: 'GET',
-        url: 'http://localhost:3000/api/admin/login',
+        url: 'https://easyway22.herokuapp.com/api/admin/login',
         params: data
     };
 
