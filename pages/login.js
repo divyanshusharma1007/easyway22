@@ -4,6 +4,9 @@ import loginadmin from '../actions/admin/login'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import Cookies from "js-cookie";
+import login from '../actions/users/login'
+import { useState } from 'react'
+const _=require('lodash')
 export default function Login({ data }) {
     const router = useRouter()
     const getvalues = () => {
@@ -15,15 +18,38 @@ export default function Login({ data }) {
 
         return data;
     }
+    const [formData, setFormData] = useState({
+        "password": "",
+        "email": ""
+    });
+
+    const onChange = (e) => {
+        const key = e?.target?.name;
+        let newFromState = _.cloneDeep(formData);
+        newFromState[key] = e.target.value;
+        setFormData(newFromState);
+    }
+    const loginUser = async (e) => {
+        const data = await login(formData);
+        Cookies.set("auth", JSON.stringify(data));
+        console.log(Cookies.get('auth'))
+        alert('loging successfull')
+        console.log(typeof (Cookies.get('auth')), 'type of cookie')
+        if (!(Cookies.get('auth') === 'undefined')) {
+            router.push('/cart');
+        } else {
+            router.push('/login');
+        }
+    }
     const loginAdmin = async (e) => {
         const { username, password, alt } = getvalues();
         alert("your process for loging is running please wait ")
         if (alt && password && username) {
             const data = await loginadmin({ username: username, password: password })
-            Cookies.set("auth",JSON.stringify(data));
+            Cookies.set("auth", JSON.stringify(data));
             console.log(data)
             alert('you are loging as admin')
-            console.log(typeof(Cookies.get('auth')),'type of cookie' )
+            console.log(typeof (Cookies.get('auth')), 'type of cookie')
             if (!(Cookies.get('auth') === 'undefined')) {
                 router.push('/admin');
             } else {
@@ -60,22 +86,29 @@ export default function Login({ data }) {
                                                     <input
                                                         type="text"
                                                         className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                                        id="exampleFormControlInput1"
-                                                        placeholder="Username"
+                                                        id="email"
+                                                        placeholder="email"
+                                                        name="email"
+                                                        onChange={onChange}
+                                                        value={formData?.email}
                                                     />
                                                 </div>
                                                 <div className="mb-4">
                                                     <input
                                                         type="password"
                                                         className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                                        id="exampleFormControlInput1"
+                                                        id="password"
                                                         placeholder="Password"
+                                                        name="password"
+                                                        onChange={onChange}
+                                                        value={formData?.password}
                                                     />
                                                 </div>
                                                 <div className="text-center pt-1 mb-12 pb-1">
                                                     <button
                                                         className="inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md  hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3 bg-gradient-to-r from-indigo-500  to-fuchsia-600"
                                                         type="button"
+                                                        onClick={loginUser}
                                                     >
                                                         Log in
                                                     </button>
