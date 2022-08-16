@@ -21,6 +21,7 @@ export default function Login({ data }) {
         if (alt && password && username) {
             const data = await loginadmin({ username: username, password: password })
             Cookies.set("auth",JSON.stringify(data));
+            console.log(data)
             alert('you are loging as admin')
             console.log(typeof(Cookies.get('auth')),'type of cookie' )
             if (!(Cookies.get('auth') === 'undefined')) {
