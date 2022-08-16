@@ -1,0 +1,1 @@
+export default 'https://easyway22.herokuapp.com/api/'

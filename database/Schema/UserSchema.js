@@ -7,7 +7,6 @@ const UserSchema = new Schema({
     contactnumber: {
         type: Number,
         required: true,
-        unique: true
     },
     email: {
         type: String,

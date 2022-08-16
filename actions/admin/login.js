@@ -1,9 +1,9 @@
 import axios from 'axios'
+import serverurl from '../../serverurl';
 export default async (data) => {
-    console.log(data)
     const options = {
         method: 'GET',
-        url: 'https://easyway22.herokuapp.com/api/admin/login',
+        url: `${serverurl}/admin/login`,
         params: data
     };
 

@@ -1,7 +1,40 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-export default function signup() {
+import { useState } from 'react'
+const _ = require('lodash')
+import signup from '../actions/users/signup'
+import { useRouter } from 'next/router'
+import Cookies from 'js-cookie'
+export default function signupuser() {
+  const router = useRouter()
+  const [formData, setFormData] = useState({
+    "username": "",
+    "password": "",
+    "email": "",
+    "contactnumber": "",
+    "address": ""
+  });
+
+  const onChange = (e) => {
+    const key = e?.target?.name;
+    let newFromState = _.cloneDeep(formData);
+    newFromState[key] = e.target.value;
+    setFormData(newFromState);
+  }
+  const signUpUser = async (e) => {
+    const data = await signup(formData);
+    console.log("sign up exchanged");
+    // Cookies.set("auth", JSON.stringify(data));
+    alert('loging successfull')
+    console.log(Cookies.get('auth'))
+    console.log(typeof (Cookies.get('auth')), 'type of cookie')
+    if (!(Cookies.get('auth') === 'undefined')) {
+      router.push('/cart');
+    } else {
+      router.push('/signup');
+    }
+  }
   return (
     <section className='flex justify-center bg-gray-300'>
       <section className="h-full gradient-form md:h-auto ">
@@ -26,14 +59,20 @@ export default function signup() {
                             <input
                               type="text"
                               className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none mr-2"
-                              id="exampleFormControlInput1"
-                              placeholder="First Name"
+                              id="username"
+                              placeholder="userName"
+                              value={formData?.username}
+                              name="username"
+                              onChange={onChange}
                             />
                             <input
-                              type="text"
-                              className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none ml-2"
-                              id="exampleFormControlInput1"
-                              placeholder="Last Name"
+                              type="password"
+                              className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none mr-2"
+                              id="password"
+                              placeholder="Password"
+                              name="password"
+                              value={formData?.password}
+                              onChange={onChange}
                             />
                           </div>
                         </div>
@@ -41,46 +80,41 @@ export default function signup() {
                           <input
                             type="email"
                             className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            id="exampleFormControlInput1"
+                            id="email"
                             placeholder="email"
+                            value={formData?.email}
+                            name="email"
+                            onChange={onChange}
                           />
                         </div>
                         <div className="mb-4">
                           <input
                             type="number"
-                            className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            id="exampleFormControlInput1"
-                            placeholder="Contact Number"
+                            className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none mr-2"
+                            id="number"
+                            placeholder="contact number"
+                            value={formData?.contactnumber}
+                            name="contactnumber"
+                            onChange={onChange}
                           />
                         </div>
                         <div className="mb-4">
                           <textarea
                             type=""
                             className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            id="exampleFormControlInput1"
+                            id="address"
                             placeholder="currenct address"
+                            name="address"
+                            value={formData?.address}
+                            onChange={onChange}
                           />
                         </div>
-                        <div>
-                          <div className="mb-4 flex justify-between flex-col md:flex-row">
-                            <input
-                              type="password"
-                              className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none mr-2"
-                              id="exampleFormControlInput1"
-                              placeholder="Password"
-                            />
-                            <input
-                              type="password"
-                              className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none ml-2"
-                              id="exampleFormControlInput1"
-                              placeholder="Password"
-                            />
-                          </div>
-                        </div>
+
                         <div className="text-center pt-1 mb-12 pb-1">
                           <button
                             className="inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md  hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3 bg-gradient-to-r from-indigo-500  to-fuchsia-600"
                             type="button"
+                            onClick={signUpUser}
                           >
                             Join Family
                           </button>
