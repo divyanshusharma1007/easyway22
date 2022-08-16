@@ -6,7 +6,7 @@ const _ = require('lodash')
 import signup from '../actions/users/signup'
 import { useRouter } from 'next/router'
 import Cookies from 'js-cookie'
-export default function signupuser() {
+export default function Signupuser() {
   const router = useRouter()
   const [formData, setFormData] = useState({
     "username": "",
