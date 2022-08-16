@@ -1,1 +1,1 @@
-export default 'https://easyway22.herokuapp.com/api/'
+export default 'https://easyway22.herokuapp.com/api'

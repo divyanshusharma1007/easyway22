@@ -3,7 +3,7 @@ import serverurl from "../../serverurl";
 export default async(data) => {
     const options = {
         method: 'POST',
-        url: `${serverurl}user/login`,
+        url: `${serverurl}/user/login`,
         data: data
     };
 
