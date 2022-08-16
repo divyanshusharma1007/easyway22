@@ -3,7 +3,6 @@ import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import { default_uri, jwt_secrete_key } from '../../../database/dbsettings'
 export default async (req, res) => {
-    console.log("admin login")
     // fs.writeFijlkjleSync('./database/admindb.txt', `username:rahulpatidar22\npassword:${easyway22}`)
     const dbdata =  fs.readFileSync('./database/admindb.txt', 'utf-8').split('\n').map(e => e.split(':'))
     if ((req.query['username']) && req.query['password']) {

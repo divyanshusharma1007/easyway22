@@ -10,7 +10,7 @@ export default async (data) => {
     const res = axios.request(options).then(function (response) {
         return response.data;
     }).catch(function (error) {
-        alert("some error occured")
+        alert("some error occured");
     });
     return res;
 }
