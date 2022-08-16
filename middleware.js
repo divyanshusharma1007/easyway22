@@ -1,10 +1,15 @@
 import { NextResponse } from 'next/server';
 import { NextRequest } from 'next/server';
-export function middleware(req) {
-    let verify = req.cookies.get('auth')
+import Cookies from 'js-cookie';
+export async function middleware(req) {
+    let admin = req?.cookies?.get('auth')
     let url = req.url;
-    if (!verify && url.includes('admin')) {
-        return NextResponse.redirect(req.nextUrl.origin+'/login')
+    if (url.includes('api')) {
+        return NextResponse.next();
+    }
+    else if (url.includes('/admin') && !admin?.includes('admin')) {
+        console.log('redirecting')
+        return NextResponse.redirect(req.nextUrl.origin + '/login')
     }
     else {
         NextResponse.next();

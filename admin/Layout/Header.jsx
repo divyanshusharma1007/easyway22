@@ -1,9 +1,13 @@
 import React from 'react'
 import Image from 'next/image'
+import Cookies from 'js-cookie';
+import { useRouter } from 'next/router';
 export default function Header() {
+  const router = useRouter()
   const logout = () => {
-    localStorage.clear();
-    console.log(localStorage.getItem('auth'));
+    Cookies.remove('auth')
+    router.push('/')
+
   }
   return (
     <div className="fixed w-full flex items-center justify-between h-14 text-white z-10 bg-gray-800">

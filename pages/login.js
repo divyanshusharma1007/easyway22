@@ -3,6 +3,7 @@ import Link from 'next/link'
 import loginadmin from '../actions/admin/login'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
+import Cookies from "js-cookie";
 export default function Login({ data }) {
     const router = useRouter()
     const getvalues = () => {
@@ -19,8 +20,10 @@ export default function Login({ data }) {
         alert("your process for loging is running please wait ")
         if (alt && password && username) {
             const data = await loginadmin({ username: username, password: password })
-            localStorage.setItem("auth", JSON.stringify(data));
-            if (!(localStorage.getItem('auth') === 'undefined')) {
+            Cookies.set("auth",JSON.stringify(data));
+            alert('you are loging as admin')
+            console.log(typeof(Cookies.get('auth')),'type of cookie' )
+            if (!(Cookies.get('auth') === 'undefined')) {
                 router.push('/admin');
             } else {
                 router.push('/login');
