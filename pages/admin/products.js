@@ -115,7 +115,7 @@ export async function getServerSideProps(context) {
 
   const options = { method: 'GET', url: `https://easyway22.herokuapp.com/api/admin/files` };
 
-  const data = axios.request(options).then(function (response) {
+  const data = await axios.request(options).then(function (response) {
     return response.data.files;
   }).catch(function (error) {
     console.error(error);
