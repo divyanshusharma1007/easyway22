@@ -113,16 +113,16 @@ export default function Products({ data }) {
 
 export async function getServerSideProps(context) {
 
-  // const options = { method: 'GET', url: `https://easyway22.herokuapp.com/api/admin/files` };
+  const options = { method: 'GET', url: `https://easyway22.herokuapp.com/api/admin/files` };
 
-  // const data = axios.request(options).then(function (response) {
-  //   return response.data;
-  // }).catch(function (error) {
-  //   console.error(error);
-  // });
+  const data = axios.request(options).then(function (response) {
+    return response.data.files;
+  }).catch(function (error) {
+    console.error(error);
+  });
   // console.log(data);
-  const res = await fetch(`${serverurl}/admin/files`, { method: 'GET' })
-  const data = await res.json()
+  // const res = await fetch(`${serverurl}/admin/files`, { method: 'GET' })
+  // const data = await res.json()
 
   // Pass data to the page via props
   return { props: { data } }
