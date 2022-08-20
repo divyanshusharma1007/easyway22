@@ -4,10 +4,10 @@ const _ = require('lodash')
 import addproduct from '../../actions/admin/addproduct';
 import axios from 'axios'
 import img from '../../public/Images/basket.png'
-import {serverurl} from '../../serverurl'
+import { serverurl } from '../../serverurl'
 export default function Products({ data }) {
-  console.log(data,"data");
-  data=data.files;
+  console.log(data, "data");
+  data = data.files;
   const intitialState = {
     name: "",
     price: "",
@@ -75,7 +75,7 @@ export default function Products({ data }) {
               <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-first-name">
                 Product Name
               </label>
-              <Image src={formData.img===''?img:formData.img.startsWith('/')?require(formData?.img):formData.img} height={100} width={150} />
+              <Image src={formData.img === '' ? img : formData.img.startsWith('/') ? require(formData?.img) : formData.img} height={100} width={150} />
               <input className="w-[100px]" id="grid-first-name" type="file" placeholder="Jane" onChange={uploadImage} />
               <p className="text-red-500 text-xs italic">Please fill out this field.</p>
             </div>
@@ -112,9 +112,17 @@ export default function Products({ data }) {
 
 
 export async function getServerSideProps(context) {
- 
-  const res = await fetch(`${serverurl}/admin/files`,{method:'GET'})
-  const data = await res.json()
+
+  const options = { method: 'GET', url: `https://easyway22.herokuapp.com/api/admin/files` };
+
+  const data = axios.request(options).then(function (response) {
+    return response.data;
+  }).catch(function (error) {
+    console.error(error);
+  });
+  console.log(data);
+  // const res = await fetch(`${serverurl}/admin/files`, { method: 'GET' })
+  // const data = await res.json()
 
   // Pass data to the page via props
   return { props: { data } }
