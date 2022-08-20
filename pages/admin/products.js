@@ -88,7 +88,7 @@ export default function Products({ data }) {
                 </label>
                 <select onChange={onChange} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" name='img' >
                   {
-                    data?.map((e) => <option value={`../../public/products${e}`} key={e}>{e.split('.')[0]}</option>)
+                    data?.map((e) => <option value={`../../public/products/${e}`} key={e}>{e.split('.')[0]}</option>)
                   }
                 </select>
               </div>
