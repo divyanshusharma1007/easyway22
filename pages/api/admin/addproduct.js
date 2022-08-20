@@ -29,9 +29,6 @@ const handler = async (req, res) => {
             console.log(err);
             res.status(501).json({ error: "some internal server error occured" });
         }
-
-
-
     }
     else {
         res.status(400).json({ error: "you are not authorised admin" })

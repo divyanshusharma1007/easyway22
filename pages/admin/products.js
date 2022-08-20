@@ -47,52 +47,52 @@ export default function Products({ data }) {
     <div className='bg-slate-300 sm:px-[5rem] pl-[3rem] md:pl-[30%] lg:pl-[20%] py-3 flex flex-col'>
       <div className='flex flex-col bg-slate-400 p-3 rounded-lg'>
         <form className=' py-3 px-3  flex sm:block justify-center sm:justify-between rounded-lg'>
-          <div class="flex flex-wrap -mx-3 mb-6">
-            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name" name="name">
+          <div className="flex flex-wrap -mx-3 mb-6">
+            <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name" name="name">
                 Product Name
               </label>
-              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane" name="name" onChange={onChange} />
-              <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+              <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane" name="name" onChange={onChange} />
+              <p className="text-red-500 text-xs italic">Please fill out this field.</p>
             </div>
-            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+            <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                 price
               </label>
-              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="Number" placeholder="Jane" name="price" onChange={onChange} />
-              <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+              <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="Number" placeholder="Jane" name="price" onChange={onChange} />
+              <p className="text-red-500 text-xs italic">Please fill out this field.</p>
             </div>
-            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+            <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                 discount
               </label>
-              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="Number" placeholder="Jane" name="discount" onChange={onChange} />
-              <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+              <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="Number" placeholder="Jane" name="discount" onChange={onChange} />
+              <p className="text-red-500 text-xs italic">Please fill out this field.</p>
             </div>
-            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+            <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                 Product Name
               </label>
-              <Image src={require('/public/images/basket.png')} height={100} width={150} />
-              <input class="w-[100px]" id="grid-first-name" type="file" placeholder="Jane" onChange={uploadImage} />
-              <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+              <Image src={formData.img===''?require('/public/images/basket.png'):formData.img.startsWith('/')?require(formData?.img):formData.img} height={100} width={150} />
+              <input className="w-[100px]" id="grid-first-name" type="file" placeholder="Jane" onChange={uploadImage} />
+              <p className="text-red-500 text-xs italic">Please fill out this field.</p>
             </div>
-            <div class="w-full md:w-1/2 px-3">
+            <div className="w-full md:w-1/2 px-3">
               <div>
-                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                   PreImage
                 </label>
-                <select onChange={onChange} class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" name='img' >
+                <select onChange={onChange} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" name='img' >
                   {
                     data?.map((e) => <option value={`public/products/${e}`}>{e.split('.')[0]}</option>)
                   }
                 </select>
               </div>
               <div>
-                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                   Category
                 </label>
-                <select onChange={onChange} class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" >
+                <select onChange={onChange} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" >
                   <option value={"fruits"}>fruits</option>
                   <option value={"vegitable"}>vegitables</option>
                 </select>
@@ -100,7 +100,7 @@ export default function Products({ data }) {
             </div>
           </div>
         </form>
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={addProduct}>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={addProduct}>
           Add Product
         </button>
       </div>
