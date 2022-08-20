@@ -112,7 +112,7 @@ export default function Products({ data }) {
 
 export async function getServerSideProps() {
  
-  const res = await fetch(`http://localhost:3000/api/admin/files`)
+  const res = await fetch(`${serverurl}/admin/files`)
   const data = await res.json()
 
   // Pass data to the page via props

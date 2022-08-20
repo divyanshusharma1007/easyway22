@@ -4,7 +4,7 @@ export default (data)=>{
 
     const options = {
         method: 'POST',
-        url: 'http://localhost:3000/api/admin/addproduct',
+        url: `${serverurl}/admin/addproduct`,
         headers: {
             'auth-token': JSON.parse(Cookies.get('auth')).authtoken
         },
