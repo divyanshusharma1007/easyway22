@@ -7,7 +7,7 @@ import img from '../../public/Images/basket.png'
 import { serverurl } from '../../serverurl'
 export default function Products({ data }) {
   console.log(data, "data");
-  data = data.files;
+  // data = data.files;
   const intitialState = {
     name: "",
     price: "",
