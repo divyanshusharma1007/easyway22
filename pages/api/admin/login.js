@@ -8,7 +8,7 @@ export default async (req, res) => {
     if ((req.query['username']) && req.query['password']) {
         if (req.query['username'] === dbdata[0][1] && await bcrypt.compare(req.query['password'], dbdata[1][1])) {
             console.log( await bcrypt.compare(req.query['password'], dbdata[1][1]))
-            const authtoken = await jwt.sign({ data: dbdata[0][1] + "3825" + dbdata[1][1] + 'easyway22' }, jwt_secrete_key)
+            const authtoken = jwt.sign({ data: dbdata[0][1] + "3825" + dbdata[1][1] + 'easyway22' }, jwt_secrete_key)
             console.log(authtoken);
             res.status(200).json({ authtoken: authtoken, authas: 'admin' })
         }
