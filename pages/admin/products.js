@@ -49,28 +49,28 @@ export default function Products({ data }) {
         <form className=' py-3 px-3  flex sm:block justify-center sm:justify-between rounded-lg'>
           <div className="flex flex-wrap -mx-3 mb-6">
             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name" name="name">
+              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlfor="grid-first-name" name="name">
                 Product Name
               </label>
               <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane" name="name" onChange={onChange} />
               <p className="text-red-500 text-xs italic">Please fill out this field.</p>
             </div>
             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlfor="grid-first-name">
                 price
               </label>
               <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="Number" placeholder="Jane" name="price" onChange={onChange} />
               <p className="text-red-500 text-xs italic">Please fill out this field.</p>
             </div>
             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlfor="grid-first-name">
                 discount
               </label>
               <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="Number" placeholder="Jane" name="discount" onChange={onChange} />
               <p className="text-red-500 text-xs italic">Please fill out this field.</p>
             </div>
             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlfor="grid-first-name">
                 Product Name
               </label>
               <Image src={formData.img===''?require('/public/images/basket.png'):formData.img.startsWith('/')?require(formData?.img):formData.img} height={100} width={150} />
@@ -79,17 +79,17 @@ export default function Products({ data }) {
             </div>
             <div className="w-full md:w-1/2 px-3">
               <div>
-                <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlfor="grid-last-name">
                   PreImage
                 </label>
                 <select onChange={onChange} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" name='img' >
                   {
-                    data?.map((e) => <option value={`public/products/${e}`}>{e.split('.')[0]}</option>)
+                    data?.map((e) => <option value={`public/products/${e}`} key={e}>{e.split('.')[0]}</option>)
                   }
                 </select>
               </div>
               <div>
-                <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlfor="grid-last-name">
                   Category
                 </label>
                 <select onChange={onChange} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" >
