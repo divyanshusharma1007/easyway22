@@ -77,7 +77,7 @@ export default function Products({ data }) {
               <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-first-name">
                 Product Name
               </label>
-              <Image src={formData.img===''?require("../../public/Images/basket.png"):('/'in formData.img) ?require(formData.img):formData.img} height={100} width={150} />
+              <Image src={formData.img===''?require("../../public/Images/basket.png"): formData.img[0]==='.' ?require(formData.img):formData.img} height={100} width={150} />
               <input className="w-[100px]" id="grid-first-name" type="file" placeholder="Jane" onChange={uploadImage} />
               <p className="text-red-500 text-xs italic">Please fill out this field.</p>
             </div>
