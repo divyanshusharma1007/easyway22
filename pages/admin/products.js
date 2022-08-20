@@ -4,6 +4,7 @@ const _ = require('lodash')
 import addproduct from '../../actions/admin/addproduct';
 import axios from 'axios'
 import img from '../../public/Images/basket.png'
+import {serverurl} from '../../serverurl'
 export default function Products({ data }) {
   console.log(data,"data");
   data=data.files;
