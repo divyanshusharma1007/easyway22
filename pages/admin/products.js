@@ -36,7 +36,9 @@ export default function Products({ data }) {
     setFromData(newState);
   }
   const addProduct = async () => {
+    alert("adding your product ")
     addproduct(formData)
+    alert("product added successfully")
   }
   const onChange = (e) => {
     const key = e?.target?.name;
