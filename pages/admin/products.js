@@ -111,7 +111,7 @@ export default function Products({ data }) {
 }
 
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
  
   const res = await fetch(`${serverurl}/admin/files`)
   const data = await res.json()
