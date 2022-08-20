@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from "js-cookie";
-export default (data)=>{
-
+export default (data) => {
+    console.log(Cookies.get('auth'))
     const options = {
         method: 'POST',
         url: `${serverurl}/admin/addproduct`,
@@ -10,7 +10,7 @@ export default (data)=>{
         },
         data: data
     };
-    
+
     axios.request(options).then(function (response) {
         alert("product added successfully")
         return response.data;
