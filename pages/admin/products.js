@@ -3,6 +3,7 @@ import Image from 'next/image';
 const _ = require('lodash')
 import addproduct from '../../actions/admin/addproduct';
 import axios from 'axios'
+import img from '../../public/Images/basket.png'
 export default function Products({ data }) {
   console.log(data,"data");
   data=data.files;
@@ -73,7 +74,7 @@ export default function Products({ data }) {
               <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-first-name">
                 Product Name
               </label>
-              <Image src={formData.img===''?require('../../public/images/basket.png'):formData.img.startsWith('/')?require(formData?.img):formData.img} height={100} width={150} />
+              <Image src={formData.img===''?img:formData.img.startsWith('/')?require(formData?.img):formData.img} height={100} width={150} />
               <input className="w-[100px]" id="grid-first-name" type="file" placeholder="Jane" onChange={uploadImage} />
               <p className="text-red-500 text-xs italic">Please fill out this field.</p>
             </div>
@@ -84,7 +85,7 @@ export default function Products({ data }) {
                 </label>
                 <select onChange={onChange} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" name='img' >
                   {
-                    data?.map((e) => <option value={`public/products/${e}`} key={e}>{e.split('.')[0]}</option>)
+                    data?.map((e) => <option value={`../../public/products${e}`} key={e}>{e.split('.')[0]}</option>)
                   }
                 </select>
               </div>
