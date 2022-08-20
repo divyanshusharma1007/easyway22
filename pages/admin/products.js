@@ -77,7 +77,7 @@ export default function Products({ data }) {
               <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-first-name">
                 Product Name
               </label>
-              <Image src={formData.img===''?require("../../public/Images/basket.png"): formData.img[0]==='.' ?require(formData.img):formData.img} height={100} width={150} />
+              <Image src={formData.img === '' ? require("../../public/Images/basket.png") : formData.img[0] === '.' ? require(formData.img) : formData.img} height={100} width={150} />
               <input className="w-[100px]" id="grid-first-name" type="file" placeholder="Jane" onChange={uploadImage} />
               <p className="text-red-500 text-xs italic">Please fill out this field.</p>
             </div>
@@ -88,7 +88,7 @@ export default function Products({ data }) {
                 </label>
                 <select onChange={onChange} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" name='img' >
                   {
-                    data?.map((e) => <option value={`../../public/products/${e}`} key={e}>{e.split('.')[0]}</option>)
+                    data?.map((e) => <option value={e[1]} key={e[0]}>{e[0].split('.')[0]}</option>)
                   }
                 </select>
               </div>
@@ -122,11 +122,11 @@ export async function getServerSideProps(context) {
   }).catch(function (error) {
     console.error(error);
   });
-  // console.log(data);
-  // const res = await fetch(`${serverurl}/admin/files`, { method: 'GET' })
-  // const data = await res.json()
-
-  // Pass data to the page via props
+  const files = [];
+  data.forEach(e => {
+    files.push([e, require('../../public/products/' + e)]);
+  });
+  data = files;
   return { props: { data } }
 }
 
