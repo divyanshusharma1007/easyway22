@@ -21,6 +21,10 @@ const ProductSchema = new Schema({
         type: Number,
         default: 5
     },
+    category:{
+        type:String,
+        default:"vegitables"
+    },
     active: {
         type: Boolean,
         default: false
