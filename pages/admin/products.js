@@ -4,7 +4,7 @@ import Image from 'next/image'
 import _ from 'lodash'
 import serverurl from '../../serverurl'
 import addproduct from '../../actions/admin/addproduct'
-export default function products({ data }) {
+export default function Products({ data }) {
     console.log(data, "data is here ")
     const intitialState = {
         name: "",
@@ -25,6 +25,7 @@ export default function products({ data }) {
     const addProduct = async () => {
         alert("adding your product ")
         alert(formData)
+        console.log(formData);
         addproduct(formData)
         alert("product added successfully")
       }
