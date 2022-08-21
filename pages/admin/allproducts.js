@@ -4,7 +4,7 @@ import Image from 'next/image';
 export default function allproducts({ data }) {
     return (
         <div className=' pt-[8%] bg-slate-300 sm:px-[5rem] pl-[3rem] md:pl-[30%] lg:pl-[20%] py-3 flex flex-col'>
-            <div className='grid grid-flow-row grid-cols-5'>
+            <div className='grid grid-flow-row  grid-cols-3 sm:grid-cols-5'>
                 {data.map((e) =>
                 (
                     <div  key={e} className='shadow-lg shadow-black flex justify-center flex-col m-3 rounded-lg pt-3'>
