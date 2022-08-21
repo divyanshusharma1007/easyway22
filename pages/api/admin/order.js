@@ -1,6 +1,5 @@
 import connectToMongo from "../../../database/connections"
 import models from '../../../database/models'
-const mongoose = require('mongoose')
 const handler = async (req, res) => {
   console.log("Running")
   const { Orders } = models();

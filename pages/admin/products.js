@@ -30,7 +30,7 @@ export default function Products({ data }) {
         alert("product added successfully")
       }
     return (
-        <div className=' pt-[20%] bg-slate-300 sm:px-[5rem] pl-[3rem] md:pl-[30%] lg:pl-[20%] py-3 flex flex-col'>
+        <div className=' pt-[8%] bg-slate-300 sm:px-[5rem] pl-[3rem] md:pl-[30%] lg:pl-[20%] py-3 flex flex-col'>
             <div className='flex flex-col bg-slate-400 p-3 rounded-lg'>
                 <form className=' py-3 px-3  flex sm:block justify-center sm:justify-between rounded-lg'>
                     <div className="flex flex-wrap -mx-3 mb-6">
