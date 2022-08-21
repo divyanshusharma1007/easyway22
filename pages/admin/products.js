@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image';
 const _ = require('lodash')
-import addproduct from '../actions/admin/addproduct';
+import addproduct from '../../actions/admin/addproduct';
 import axios from 'axios'
 // import img from '../../public/Images/basket.png'
-import { serverurl } from '../serverurl'
+import { serverurl } from '../../serverurl'
 export default function Products({ data }) {
   const [img, setimgindex] = useState(0)
   data = JSON.parse(data);
