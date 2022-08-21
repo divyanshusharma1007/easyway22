@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image';
 const _ = require('lodash')
-import addproduct from '../../actions/admin/addproduct';
+import addproduct from '../actions/admin/addproduct';
 import axios from 'axios'
-import img from '../../public/Images/basket.png'
-import { serverurl } from '../../serverurl'
+// import img from '../../public/Images/basket.png'
+import { serverurl } from '../serverurl'
 export default function Products({ data }) {
-  console.log(data, "data");
+  const [img, setimgindex] = useState(0)
+  data = JSON.parse(data);
   // data = data.files;
   const intitialState = {
     name: "",
@@ -47,6 +48,17 @@ export default function Products({ data }) {
     setFromData(newFromState);
     console.log(formData);
   }
+  useEffect(() => {
+    console.log(img, "img index");
+  }, [img])
+
+  const changeimg = (i) => {
+    const key='img'
+    let newFromState = _.cloneDeep(formData);
+    newFromState[key] = data[i.target.value];
+    setFromData(newFromState);
+    setimgindex(data[i.target.value][1])
+  }
   return (
     <div className='bg-slate-300 sm:px-[5rem] pl-[3rem] md:pl-[30%] lg:pl-[20%] py-3 flex flex-col'>
       <div className='flex flex-col bg-slate-400 p-3 rounded-lg'>
@@ -63,21 +75,21 @@ export default function Products({ data }) {
               <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-first-name">
                 price
               </label>
-              <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="Number" placeholder="Jane" name="price" onChange={onChange} />
+              <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="Number" placeholder="Price" name="price" onChange={onChange} />
               <p className="text-red-500 text-xs italic">Please fill out this field.</p>
             </div>
             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-first-name">
                 discount
               </label>
-              <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="Number" placeholder="Jane" name="discount" onChange={onChange} />
+              <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="Number" placeholder="discount" name="discount" onChange={onChange} />
               <p className="text-red-500 text-xs italic">Please fill out this field.</p>
             </div>
             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-first-name">
                 Product Name
               </label>
-              <Image src={formData.img === '' ? require("../../public/Images/basket.png") : formData.img[0] === '.' ? require(formData.img) : formData.img} height={100} width={150} />
+              <Image src={img?img:formData.img} height={200} width={200} />
               <input className="w-[100px]" id="grid-first-name" type="file" placeholder="Jane" onChange={uploadImage} />
               <p className="text-red-500 text-xs italic">Please fill out this field.</p>
             </div>
@@ -86,9 +98,11 @@ export default function Products({ data }) {
                 <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-last-name">
                   PreImage
                 </label>
-                <select onChange={onChange} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" name='img' >
+                <select onChange={changeimg} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" name='img' >
                   {
-                    data?.map((e) => <option value={e[1]} key={e[0]}>{e[0].split('.')[0]}</option>)
+                    data?.map((e, i) => {
+                      return (<option value={i} key={e[0]}>{e[0].split('.')[0]}</option>)
+                    })
                   }
                 </select>
               </div>
@@ -97,7 +111,7 @@ export default function Products({ data }) {
                   Category
                 </label>
                 <select onChange={onChange} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" >
-                  <option value={"fruits"}>fruits</option>
+                  <option value={"fruits"} >fruits</option>
                   <option value={"vegitable"}>vegitables</option>
                 </select>
               </div>
@@ -120,13 +134,13 @@ export async function getServerSideProps(context) {
   let data = await axios.request(options).then(function (response) {
     return response.data.files;
   }).catch(function (error) {
-    console.error(error);
   });
   const files = [];
   data.forEach(e => {
-    files.push([e, require('../../public/products/' + e)]);
+    files.push([e, require('/public/products/' + e)]);
   });
   data = files;
-  return { props: { data } }
+
+  return { props: { data: JSON.stringify(data) } }
 }
 
