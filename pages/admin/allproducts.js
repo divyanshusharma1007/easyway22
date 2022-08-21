@@ -7,7 +7,7 @@ export default function allproducts({ data }) {
             <div className='grid grid-flow-row grid-cols-5'>
                 {data.map((e) =>
                 (
-                    <div className='shadow-lg shadow-black flex justify-center flex-col m-3 rounded-lg pt-3'>
+                    <div  key={e} className='shadow-lg shadow-black flex justify-center flex-col m-3 rounded-lg pt-3'>
                         <Image src={require(`/public/products/${e}`)} height={84} width={84} />
                         <h2 className='text-center'> {e.split('.')[0]}</h2>
                     </div>
