@@ -101,7 +101,7 @@ export default function Products({ data }) {
                 <select onChange={changeimg} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" name='img' >
                   {
                     data?.map((e, i) => {
-                      return (<option value={i} key={e[0]}>{e[0].split('.')[0]}</option>)
+                      return (<option value={i} key={e[0]}><div><Image src={e[1]}/>{e[0].split('.')[0]}</div></option>)
                     })
                   }
                 </select>
@@ -140,7 +140,7 @@ export async function getServerSideProps(context) {
     files.push([e, require('../../public/products/' + e)]);
   });
   data = files;
-
+  console.log(files,"files in product.js");
   return { props: { data: JSON.stringify(data) } }
 }
 
