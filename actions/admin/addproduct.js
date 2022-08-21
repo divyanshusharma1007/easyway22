@@ -7,7 +7,7 @@ export default (data) => {
         method: 'POST',
         url: `${serverurl}/admin/addproduct`,
         headers: {
-            'auth-token': JSON.parse(Cookies.get('auth')).authtoken
+            'auth-token':await JSON.parse(Cookies.get('auth')).authtoken
         },
         data: data
     };
