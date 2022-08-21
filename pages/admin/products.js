@@ -137,7 +137,7 @@ export async function getServerSideProps(context) {
   });
   const files = [];
   data.forEach(e => {
-    files.push([e, require('/public/products/' + e)]);
+    files.push([e, require('../../public/products/' + e)]);
   });
   data = files;
 
