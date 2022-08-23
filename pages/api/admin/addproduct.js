@@ -7,6 +7,7 @@ const handler = async (req, res) => {
         name: Joi.string().required(),
         price: Joi.required(),
         discount: Joi.required(),
+        category:Joi.required().string()
     })
     if (fetchadmin(req, res)) {
         const reqObj = {
@@ -14,6 +15,7 @@ const handler = async (req, res) => {
             price: req.body.price,
             img: req.body.img,
             discount: req.body.discount,
+            category:req.body.category
         }
         const errors = schema.validate(reqObj);
         if (errors?.details?.length > 0) {
