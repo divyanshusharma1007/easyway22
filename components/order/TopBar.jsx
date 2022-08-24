@@ -10,8 +10,8 @@ export default function TopBar({data}) {
   console.log(displayProducts)
   return (
     <div className='flex flex-col md:flex-row'>
-    <Catagories />
-    <Product />
+    <Catagories setDisplayProducts={setDisplayProducts} vegis={vegis} fruits={fruits} />
+    <Product prduc={displayProducts} />
 </div>
   )
 }
