@@ -7,7 +7,7 @@ const handler = async (req, res) => {
         name: Joi.string().required(),
         price: Joi.required(),
         discount: Joi.required(),
-        category:Joi.required().string()
+        category:Joi.string()
     })
     if (fetchadmin(req, res)) {
         const reqObj = {
