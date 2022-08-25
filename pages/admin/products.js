@@ -34,11 +34,11 @@ export default function Products({ data }) {
     return (
         <>
             <div className='bg-slate-300 sm:px-[5rem] pl-[3rem] md:pl-[30%] lg:pl-[20%]'>
+                <>
                 <div className='pt-3'>
                     <Tabs />
                 </div>
-                <>
-                    <div className='flex flex-col bg-slate-600 p-3 rounded-lg'>
+                    <div className='flex flex-col bg-slate-600 p-3 rounded-lg mx-3'>
                         <form className=' py-3 px-3  flex sm:block justify-center sm:justify-between rounded-lg'>
                             <div className="flex flex-wrap -mx-3 mb-6">
                                 <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">

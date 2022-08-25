@@ -3,7 +3,7 @@ import Features from '../components/home/Features'
 import ServiceContainer from '../components/home/ServiceContainer'
 import Slider from '../components/home/Slider'
 import TopBar from '../components/home/TopBar'
-import SpecialProducts from '../components/home/SpecialProducts'
+import Category from '../components/home/Category'
 import HomeFooter from '../components/home/HomeFooter'
 import Offer from '../components/home/Offer'
 export default function Home() {
@@ -19,7 +19,7 @@ export default function Home() {
         <hr className='my-2' />
         <Slider />
         <hr className='my-2' />
-        <SpecialProducts />
+        <Category />
         <hr className='my-2' />
         <Features />
         <Offer/>

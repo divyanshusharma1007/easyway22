@@ -2,7 +2,8 @@ import React from 'react'
 import Bulk from '../components/order/Bulk'
 import TopBar from '../components/order/TopBar'
 import axios from 'axios'
-export default function OrderSection({data}) {
+export default function OrderSection({data,query}) {
+    console.log(query)
 console.log(data  , "data arived in order section ")
     return (
         <div className='bg-slate-200'>

@@ -3,7 +3,7 @@ import Image from 'next/image'
 export default function ProductCard({product}) {
     return (
         <div className='  mx-3 my-2 flex sm:flex-col sm:ml-10 border-2 border-black rounded-lg shadow-sm shadow-blue-900'> 
-            <Image src={require(`/public/products/${product.img}`)} height={120} width={84} />
+            <Image src={require(`/public/products/${product.img}`)} height={120} width={170} />
             <div className='mx-2'>
                 <div>
                     <h2>{product.name}</h2>
