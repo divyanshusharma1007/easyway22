@@ -19,13 +19,23 @@ const OrderSchema = new Schema({
         type: mongoose.Schema.Types.String,
         ref: 'Product'
     },
-    deliver:{
-        type:Boolean,
-        required:true,
-        default:false,
+    deliver: {
+        type: Boolean,
+        required: true,
+        default: false,
     },
-    review:{
-        type:String,
+    review: {
+        type: String,
+    },
+    address: {
+        type: String,
+    },
+    amount: {
+        type: Number,
+    },
+    date: {
+        type: Date,
+        default: Date.now()
     }
 })
 export default OrderSchema;
