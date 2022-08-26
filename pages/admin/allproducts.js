@@ -1,9 +1,13 @@
 import React from 'react'
 import axios from 'axios'
 import Image from 'next/image';
+import Tabs from '../../admin/Products/Tabs'
 export default function allproducts({ data }) {
     return (
         <div className=' pt-[8%] bg-slate-300 sm:px-[5rem] pl-[3rem] md:pl-[30%] lg:pl-[20%] py-3 flex flex-col'>
+             <div className='pt-3'>
+                    <Tabs />
+                </div>
             <div className='grid grid-flow-row  grid-cols-3 sm:grid-cols-5'>
                 {data.map((e) =>
                 (

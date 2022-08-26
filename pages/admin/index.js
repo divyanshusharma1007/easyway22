@@ -1,7 +1,9 @@
 import React from 'react'
 import axios  from 'axios';
 import { orderBy } from 'lodash';
+import Row from '../../admin/index/Row';
 export default function index({data}) {
+console.log(data)
   return (
     <div className='bg-slate-300 sm:px-[5rem] pl-[3rem] md:pl-[30%] lg:pl-[20%]'>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-4 gap-4  relative pt-20 ">
@@ -232,30 +234,7 @@ export default function index({data}) {
                 </tr>
               </thead>
               <tbody className="divide-gray-700 bg-gray-800">
-                <tr className="bg-gray-800  hover:bg-gray-900 text-gray-300 dark:text-gray-400">
-                  <td className="px-4 py-3">
-                    <div className="flex items-center text-sm">
-                      <div className="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                        <div className="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
-                      </div>
-                      <div>
-                        <p className="font-semibold">Hans Burger</p>
-                        <p className="text-xs text-gray-400">10x Developer</p>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <div>
-                      <h2>Radha Kunj Colony </h2>
-                      <h3>Maheshwar {451224}</h3>
-                    </div>
-                  </td>
-                  <td className="px-4 py-3 text-sm">$855.85</td>
-                  <td className="px-4 py-3 text-xs">
-                    <span className="px-2 py-1 font-semibold leading-tight  rounded-full bg-green-700 text-green-100"> Approved </span>
-                  </td>
-                  <td className="px-4 py-3 text-sm">15-01-2021</td>
-                </tr>
+               {data.order.map(e=><Row key={e} e={e}/>)}
               </tbody>
             </table>
           </div>
