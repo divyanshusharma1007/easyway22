@@ -4,7 +4,7 @@ import models from '../../../database/models'
 import fetchadmin from '../../../helpers/fetchadmin'
 const handler = async (req, res) => {
     console.log("calling fetch admin")
-    // if (fetchadmin(req, res)) {
+    if (fetchadmin(req, res)) {
         const { Product, User, Order } = models();
         try {
             console.log("running")
@@ -17,8 +17,6 @@ const handler = async (req, res) => {
             console.log(e)
             res.status(400).json({ error: "some internal server error occured" })
         }
-    // }
-
-
+    }
 }
 export default connectToMongo(handler);

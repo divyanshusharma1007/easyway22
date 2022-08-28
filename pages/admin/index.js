@@ -1,9 +1,10 @@
 import React from 'react'
-import axios  from 'axios';
+import axios from 'axios';
 import { orderBy } from 'lodash';
-import Row from '../../admin/index/Row';
-export default function index({data}) {
-console.log(data)
+import Row from '../../admin/Index/Row';
+import getIndexData from '../../actions/admin/getindexdata';
+export default function index({ data }) {
+  console.log(data)
   return (
     <div className='bg-slate-300 sm:px-[5rem] pl-[3rem] md:pl-[30%] lg:pl-[20%]'>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-4 gap-4  relative pt-20 ">
@@ -41,7 +42,7 @@ console.log(data)
             <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="stroke-current text-gray-800 transform transition-transform duration-500 ease-in-out"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </div>
           <div className="text-right">
-            <p className="text-2xl">{data?.order?.filter(e=>e?.review?.length!=0)?.length}</p>
+            <p className="text-2xl">{data?.order?.filter(e => e?.review?.length != 0)?.length}</p>
             <p>Reviews</p>
           </div>
         </div>
@@ -234,7 +235,7 @@ console.log(data)
                 </tr>
               </thead>
               <tbody className="divide-gray-700 bg-gray-800">
-               {data.order.map(e=><Row key={e} e={e}/>)}
+                {data.order.map(e => <Row key={e} e={e} />)}
               </tbody>
             </table>
           </div>
@@ -244,11 +245,7 @@ console.log(data)
   )
 }
 export async function getServerSideProps(context) {
-  const options = { method: 'GET', url: `http://localhost:3000/api/admin/` };
-  let data = await axios.request(options).then(function (response) {
-      return response.data;
-  }).catch(function (error) {
-  });
+  const data = await getIndexData()
   console.log(data, "data from backedn");
   return { props: { data: data } }
 }
