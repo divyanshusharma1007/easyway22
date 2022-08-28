@@ -235,7 +235,7 @@ export default function index({ data }) {
                 </tr>
               </thead>
               <tbody className="divide-gray-700 bg-gray-800">
-                {data.order.map(e => <Row key={e} e={e} />)}
+                {data.order.map(e => <Row key={e._id} e={e} />)}
               </tbody>
             </table>
           </div>
