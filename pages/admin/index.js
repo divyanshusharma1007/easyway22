@@ -1,6 +1,5 @@
 import React from 'react'
 import axios from 'axios';
-import { orderBy } from 'lodash';
 import Row from '../../admin/Index/Row';
 import getIndexData from '../../actions/admin/getindexdata';
 export default function index({ data }) {

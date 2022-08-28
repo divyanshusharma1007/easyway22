@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function order() {
+export default function Order() {
     return (
         <div className="mx-3 ml-[18%] pt-[7%]">
-            <div className="w-full overflow-hidden rounded-lg shadow-xs">
+            <div className="w-full overflow-hidden rounded-lg shadow-xs mt-16">
                 <div className="w-full overflow-x-auto">
                     <table className="w-full">
                         <thead>
