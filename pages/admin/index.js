@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios';
 import Row from '../../admin/Index/Row';
-import getIndexData from '../../actions/admin/getindexdata';
+// import getIndexData from '../../actions/admin/getindexdata';
 export default function index({ data }) {
   console.log(data)
   return (

@@ -1,19 +1,21 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 const _ =require('lodash')
+import updateProduct from '../../actions/admin/updateproduct'
 export default function Row({ e }) {
-    console.log(e, "e is here")
 
     const [formData, setFromData] = useState(e);
-    const onChange = (e) => {
-        const key = e?.target?.name;
+
+    const onChange = (k) => {
+        const key = k?.target?.name;
         let newFromState = _.cloneDeep(formData);
-        newFromState[key] = e.target.value;
+        newFromState[key] = k.target.value;
         setFromData(newFromState);
-        console.log(formData);
+        // console.log(formData, key,k.target.value)
     }
     const update = () => {
         alert("updating your product")
+        updateProduct(formData)
         console.log(formData)
     }
     return (
@@ -28,17 +30,17 @@ export default function Row({ e }) {
             </td>
             <td>
                 <div>
-                    <input type="text" className='w-[100%] px-2 rounded-lg text-black' placeholder='name' value={e.name} onChange={onChange}/>
+                    <input type="text" className='w-[100%] px-2 rounded-lg text-black' placeholder='name' value={formData.name} onChange={onChange} name="name"/>
                 </div>
             </td>
             <td>
                 <div className='pl-3'>
-                    <input type="text" className='w-[100%] px-2 rounded-lg text-black' placeholder='price' value={e.price} onChange={onChange} />
+                    <input type="text" className='w-[100%] px-2 rounded-lg text-black' placeholder='price' value={formData.price} onChange={onChange} name="price" />
                 </div>
             </td>
             <td>
                 <div className='pl-3' >
-                    <select className='rounded-lg text-black' value={e.active} onChange={onChange}>
+                    <select className='rounded-lg text-black' value={formData.active} onChange={onChange} name="active">
                         <option className='text-black' value={true}>
                             true
                         </option>
@@ -50,7 +52,7 @@ export default function Row({ e }) {
             </td>
             <td>
                 <div className='pl-3'>
-                    <input type="text" className='w-[100%] px-2 rounded-lg  bg-green-200 text-black' value={e.discount} placeholder='discount' onChange={onChange}/>
+                    <input type="text" className='w-[100%] px-2 rounded-lg  bg-green-200 text-black' value={formData.discount} placeholder='discount' name="discount" onChange={onChange}/>
                 </div>
             </td>
             <td className="px-4 py-3 text-sm">
