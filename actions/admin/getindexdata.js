@@ -11,7 +11,7 @@ export default async () => {
         },
     };
 
-    return axios.request(options).then(function (response) {
+    return await axios.request(options).then(function (response) {
         return response.data;
     }).catch(function (error) {
         alert("some error occured")
