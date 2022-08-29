@@ -244,7 +244,20 @@ export default function index({ data }) {
   )
 }
 export async function getServerSideProps(context) {
-  const data = await getIndexData();
+  const options = {
+    method: 'POST',
+    url: 'https://easyway22.herokuapp.com/api/admin/',
+    headers: {
+      'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoicmFodWxwYXRpZGFyMjIzODI1JDJhJDEyJFZ0SFpTaW1idFo1V3RoUXdsSGl2cXVNNTVUVDRDZC5zdnJVMWplUDRSY0pmcmRSbEpPZmwyZWFzeXdheTIyIiwiaWF0IjoxNjYwOTI5MjE4fQ.ocPxEEARoBkTRsrxvlVqn7mspEVc9SOQqJqYnBNqg0s'
+    }
+  };
+
+  const data = await axios.request(options).then(function (response) {
+    return response.data;
+  }).catch(function (error) {
+    alert("some error occured")
+    console.error(error);
+  });
   console.log(data, "data from backedn");
   return { props: { data: data } }
 }
