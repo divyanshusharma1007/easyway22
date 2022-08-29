@@ -5,7 +5,7 @@ export default async () => {
     console.log(Cookies.get('auth'))
     const options = {
         method: 'POST',
-        url: `${serverurl}/admin/`,
+        url: `${serverurl}/admin`,
         headers: {
             'auth-token': await (JSON.parse(Cookies.get('auth'))).authtoken
         },
