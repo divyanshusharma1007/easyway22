@@ -244,7 +244,7 @@ export default function index({ data }) {
   )
 }
 export async function getServerSideProps(context) {
-  const data = await getIndexData()
+  const data = await getIndexData();
   console.log(data, "data from backedn");
   return { props: { data: data } }
 }
