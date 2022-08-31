@@ -6,6 +6,7 @@ import TopBar from '../components/home/TopBar'
 import Category from '../components/home/Category'
 import HomeFooter from '../components/home/HomeFooter'
 import Offer from '../components/home/Offer'
+import Cookies from 'js-cookie'
 export default function Home() {
   Cookies.set("cartData", []);
   return (
