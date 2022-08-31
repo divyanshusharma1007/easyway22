@@ -1,7 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Cookies from 'js-cookie'
 import CartItem from '../components/cart/CartItem'
 export default function Cart() {
+    useEffect(() => {
+        Cookies.set("cartData", '[]');
+    }, [])
     const d1 = JSON.parse(Cookies.get('cartData'))
     const [data, setData] = useState(d1);
     console.log(data, "data in cart")
