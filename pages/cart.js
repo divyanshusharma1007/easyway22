@@ -1,19 +1,18 @@
-import React ,{useState}from 'react'
+import React, { useState } from 'react'
 import Cookies from 'js-cookie'
 import CartItem from '../components/cart/CartItem'
 export default function Cart() {
-    const d1 = Cookies.get('cartData')
-
-    const [data,setData]=useState(JSON.parse(d1));
+    const d1 = JSON.parse(Cookies.get('cartData'))
+    const [data, setData] = useState(d1);
     console.log(data, "data in cart")
     let total = 0;
-    console.log(total,"here is total price")
-    
+    console.log(total, "here is total price")
+
     return (
         <>
             <div className='grid grid-flow-row xl:grid-cols-3 md:grid-cols-2 '>
                 {
-                    data?.map(e => <CartItem key={e._id} product={e} data={data} setData={setData}/>)
+                    data?.map(e => <CartItem key={e._id} product={e} data={data} setData={setData} />)
                 }
             </div>
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded fixed  bottom-3 right-3">

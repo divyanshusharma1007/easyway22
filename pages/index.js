@@ -8,7 +8,7 @@ import HomeFooter from '../components/home/HomeFooter'
 import Offer from '../components/home/Offer'
 import Cookies from 'js-cookie'
 export default function Home() {
-  Cookies.set("cartData", []);
+  Cookies.set("cartData", '[]');
   return (
     <div>
       <Head>
