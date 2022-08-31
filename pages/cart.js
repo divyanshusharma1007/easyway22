@@ -7,6 +7,7 @@ export default function Cart() {
     console.log(data, "data in cart")
     let total = 0;
     console.log(total,"here is total price")
+    
     return (
         <>
             <div className='grid grid-flow-row xl:grid-cols-3 md:grid-cols-2 '>

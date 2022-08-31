@@ -7,6 +7,7 @@ import Category from '../components/home/Category'
 import HomeFooter from '../components/home/HomeFooter'
 import Offer from '../components/home/Offer'
 export default function Home() {
+  Cookies.set("cartData", "[]");
   return (
     <div>
       <Head>
