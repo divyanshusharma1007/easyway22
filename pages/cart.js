@@ -2,8 +2,9 @@ import React ,{useState}from 'react'
 import Cookies from 'js-cookie'
 import CartItem from '../components/cart/CartItem'
 export default function Cart() {
-    const d1 = JSON.parse(Cookies.get('cartData'))
-    const [data,setData]=useState(d1);
+    const d1 = Cookies.get('cartData')
+
+    const [data,setData]=useState(JSON.parse(d1));
     console.log(data, "data in cart")
     let total = 0;
     console.log(total,"here is total price")
