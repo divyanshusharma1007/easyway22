@@ -2,12 +2,10 @@ import React from 'react'
 import Bulk from '../components/order/Bulk'
 import TopBar from '../components/order/TopBar'
 import axios from 'axios'
-export default function OrderSection({data,query}) {
-    console.log(query)
-console.log(data  , "data arived in order section ")
+export default function OrderSection({ data, query }) {
     return (
         <div className='bg-slate-200'>
-            <TopBar data={data}/>
+            <TopBar data={data} />
             <button className='border-2 border-red-800 mx-5  py-1 rounded-lg w-1/3 bg-slate-300 font-extrabold'>Proceed</button>
             <hr className='my-1' />
             <Bulk />
