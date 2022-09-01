@@ -6,7 +6,7 @@ export default function OrderSection({ data, query }) {
     return (
         <div className='bg-slate-200'>
             <TopBar data={data} />
-            <button className='border-2 border-red-800 mx-5  py-1 rounded-lg w-1/3 bg-slate-300 font-extrabold'>Proceed</button>
+           
             <hr className='my-1' />
             <Bulk />
         </div>
