@@ -6,7 +6,6 @@ export default function OrderSection({ data, query }) {
     return (
         <div className='bg-slate-200'>
             <TopBar data={data} />
-           
             <hr className='my-1' />
             <Bulk />
         </div>

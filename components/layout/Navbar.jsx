@@ -1,11 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 export default function Navbar() {
   return (
     <header className="text-slate-300 body-font bg-gray-600">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <Link href="/" className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-          Logo here
+          <div className='font-bold text-lg relative -top-2 py-4'>
+            <h2 className='drop-shadow shadow-3xl text-white'>The Eassy <span className='relative top-5 -left-4 text-lime-200 text-lg'>Way</span></h2>
+          </div>
         </Link>
         <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
           <a className="mr-5 hover:text-white font-extrabold flex">
@@ -17,9 +20,9 @@ export default function Navbar() {
 
             <Link href="/cart">
               <div className='flex'>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                {/* <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
+                </svg> */}
                 Cart
               </div>
             </Link></a>
