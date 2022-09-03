@@ -229,7 +229,7 @@ export default function index({ data }) {
                   <th className="px-4 py-3">Client</th>
                   <th className="px-4 py-3">Address</th>
                   <th className="px-4 py-3">Amount</th>
-                  <th className="px-4 py-3">Status</th>
+                  <th className="px-4 py-3">deliver</th>
                   <th className="px-4 py-3">Date</th>
                 </tr>
               </thead>
