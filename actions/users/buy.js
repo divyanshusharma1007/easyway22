@@ -8,7 +8,7 @@ export default async (data) => {
             method: 'POST',
             url: `https://easyway22.herokuapp.com/api/user/buy`,
             headers: {
-                'auth-token': await JSON.parse(Cookies.get('auth'))
+                'auth-token':await( JSON.parse(Cookies.get('auth'))).authtoken
             },
             data: { products: data }
         };
