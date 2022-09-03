@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 import serverurl from "../../serverurl";
 export default async (data) => {
     try {
-
+        console.log(Cookies.get('auth'),"it is your auth token")
         const options = {
             method: 'POST',
             url: `${serverurl}/user/buy`,
