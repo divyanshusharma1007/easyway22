@@ -15,6 +15,7 @@ export default async (data) => {
         axios.request(options).then(function (response) {
             alert("your order is successfully placed ")
             console.log(response.data);
+            Cookies.set('cartData','[]')
         }).catch(function (error) {
             alert("your order is not placed , some error occured")
             console.error(error);
