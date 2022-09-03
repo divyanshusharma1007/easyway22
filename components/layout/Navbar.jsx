@@ -15,7 +15,7 @@ export default function Navbar() {
 
             <Link href="/">Home </Link></a>
           <a className="mr-5 hover:text-white font-extrabold"><Link href="/order">Order</Link></a>
-          <a className="mr-5 hover:text-white font-extrabold"><Link href="/about">About</Link></a>
+          {/* <a className="mr-5 hover:text-white font-extrabold"><Link href="/about">About</Link></a> */}
           <a className="mr-5 hover:text-white font-extrabold flex cursor-pointer">
 
             <Link href="/cart">
