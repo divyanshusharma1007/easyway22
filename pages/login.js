@@ -32,9 +32,9 @@ export default function Login({ data }) {
     const loginUser = async (e) => {
         const data = await login(formData);
         Cookies.set("auth", JSON.stringify(data));
-        console.log(Cookies.get('auth'))
+        console.log(Cookies.get('auth'),"here is your auth token")
         alert('loging successfull')
-        console.log(typeof (Cookies.get('auth')), 'type of cookie')
+        console.log(Cookies)
         if (!(Cookies.get('auth') === 'undefined')) {
             router.push('/cart');
         } else {

@@ -6,7 +6,7 @@ export default async (data) => {
         console.log(Cookies.get('auth'),"it is your auth token")
         const options = {
             method: 'POST',
-            url: `${serverurl}/user/buy`,
+            url: `https://easyway22.herokuapp.com/api/user/buy`,
             headers: {
                 'auth-token': await JSON.parse(Cookies.get('auth'))
             },
