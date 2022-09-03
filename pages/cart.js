@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Cookies from 'js-cookie'
-// import useRouter from 'u'
+import purchase from '../actions/users/buy'
 import CartItem from '../components/cart/CartItem'
 export default function Cart() {
     let d1 = Cookies.get('cartData')
@@ -14,8 +14,8 @@ export default function Cart() {
     console.log(data, "data in cart")
     let total = 0;
     console.log(total, "here is total price")
-    const checkOut = () => {
-
+    const checkOut = async () => {
+        await purchase(data)
     }
     return (
         <>

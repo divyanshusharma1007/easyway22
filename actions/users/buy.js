@@ -9,7 +9,7 @@ export default async (data) => {
         headers: {
             'auth-token': await JSON.parse(Cookies.get('auth'))
         },
-        data: data
+        data: {products:data}
     };
     axios.request(options).then(function (response) {
         alert("your order is successfully placed ")
