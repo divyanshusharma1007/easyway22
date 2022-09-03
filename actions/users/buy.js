@@ -19,7 +19,8 @@ export default async (data) => {
             alert("your order is not placed , some error occured")
             console.error(error);
         });
-    }catch (e){
+    } catch (e) {
+        console.log(e);
         alert("there is a errror ")
     }
 }
