@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Cookies } from "next/dist/server/web/spec-extension/cookies";
+import Cookies from 'js-cookie';
 import serverurl from "../../serverurl";
 export default async (data) => {
 
