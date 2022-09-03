@@ -10,14 +10,9 @@ const OrderSchema = new Schema({
         ref: 'User',
         required: true
     },
-    productid: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Product',
-        required: true
-    },
-    productname: {
-        type: mongoose.Schema.Types.String,
-        ref: 'Product'
+    products: [],
+    total:{
+        type:Number
     },
     deliver: {
         type: Boolean,
